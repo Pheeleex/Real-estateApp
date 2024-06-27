@@ -2,32 +2,381 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/*constants*/
+
+.red_text {
+  color: #880808;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.red_bg {
+  background-color: #880808;
+}
+
+
+.red_text_300{
+  color: #D22B2B;
+}
+
+.red_bg_300{
+ background-color: #D22B2B;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-left: 4rem;
+  color: #D22B2B;
+  font-family: 'lato', sans-serif;
+  font-weight: 700;
+}
+
+
+
+
+/*Navbar*/
+.nav {
+  background-color: #fff;
+  padding: 2% 4%;
+}
+
+.navlinks_bg {
+  background: #eee;
+}
+
+.nav_links {
+  color: #880808;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_links:hover {
+  color: rgba(243, 66, 66, 0.2);
+}
+
+.nav_links.active {
+  background-color: #880808;
+  color: #fff;
+  padding: 9px;
+  border-radius: 4px;
+}
+
+@media (max-width: 780px) {
+  .nav_links_list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    width: 100%;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav_links_list.md {
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .nav_links {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 1rem;
+    background: #eee;
+    border-radius: 6px;
+    width: 100%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+/*Home-Hero*/
+
+
+.slide .home-slider {
+  flex: 1 1 45%;
+  margin-right: 0.7rem;
+  height: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.swiper-button-next,
+.swiper-button-prev {
+    color: #880808 !important;  /* Change the color of navigation arrows */
+}
+
+
+
+.swiper-pagination-bullet-active{
+  background: #880808 !important; 
+}
+
+.slide-img{
+  transition: translate 300ms ease-in-out;
+  flex-grow: 0;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+
+.dotStyle{
+  transition: scale 100ms ease-in-out;
+}
+
+.dotStyle:hover{
+  scale: 1.2;
+}
+
+@keyframes squish {
+  50% {
+    scale: 1.4 0.6;
   }
 }
+
+.review{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border-right:  0.1rem solid rgba(252, 83, 83, 0.3);
+  padding: 4rem;
+  padding-left: 6rem;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #880808;
+  background: transparent;
+  border: 0.14rem solid #880808;
+  cursor: pointer;
+  padding: .8rem 3rem;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #880808;
+  padding: .8rem 3rem;
+  transition: 1s;
+}
+
+.swiper-pagination-bullet {
+  background-color: #880808; /* Change the background color of pagination bullets */
+}
+
+
+.card-color{
+  background-color: rgba(252, 83, 83, 0.3);
+}
+
+.image-box {
+  position: relative;
+  margin-bottom: 8rem;
+  width: 100%;
+}
+
+.text-overlay {
+  position: absolute;
+  left: 50%;
+  transform: translate(-70%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: white;
+  color: #880808;
+  height: fit-content;
+  overflow: auto;
+}
+
+
+
+
+@media (max-width: 700px) {
+  .image-box {
+    height: 40rem;
+}
+
+.text-overlay {
+  width: 20rem;
+  left: 70%;
+  top: 30%
+}
+}
+
+/**footer**/
+
+.footer-cont {
+  border-top: 0.1rem solid rgba(252, 83, 83, 0.3);
+  gap: 0.1rem;
+}
+
+
+
+.footer-cont1 p {
+  font-size: 1rem;
+  color: #1b0b0b;
+}
+
+.home-link {
+  color: #880808;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+.footer-cont2 {
+  display: flex;
+  gap: 3rem;
+  flex: 2;
+  padding: 2rem;
+  border-left: 0.1rem solid rgba(252, 83, 83, 0.3);
+}
+
+.footer-cont2 .box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.box h3 {
+  color: #880808;
+}
+
+.box p {
+  color: #880808;
+}
+
+.quick-link {
+  color: #880808;
+  text-decoration: none;
+}
+
+.icons{
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.icons:hover {
+  animation: coolEffect 1s infinite;
+}
+
+@keyframes coolEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+@media (max-width: 771px) {
+  .footer-cont {
+    flex-direction: column;
+    border-bottom: 0.1rem solid rgba(252, 83, 83, 0.3);
+  }
+  
+  .footer-cont1 {
+    border-bottom: 0.1rem solid rgba(252, 83, 83, 0.3);
+  }
+  
+  .footer-cont2 {
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  .box {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 441px) {
+  .home {
+    margin-top: 4rem;
+  }
+}
+
+
+@media (max-width: 441px) {
+  .home {
+    margin-top: 4rem;
+  }
+}
+
+.data-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-top: 5px;
+  width: 100%; /* Set width to 100% for smaller screens */
+  max-width: 38rem; /* Limit the maximum width for larger screens */
+  height: fit-content;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  z-index: 30
+}
+
+.filter-button {
+  background-color: rgb(228, 224, 224);
+  color: black;
+  padding: 1rem;
+  margin-left: 1rem;
+  border: 1px solid rgb(44, 42, 42);
+  border-radius: 5px;
+  font-weight: bold;
+  width: 150%; /* Make the button take the full width of the container */
+  max-width: 8rem; /* Limit the maximum width for larger screens */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.data-results .data-item {
+  padding: 0.3rem;
+  padding-left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(54, 7, 7);
+  justify-self: center;
+  cursor: pointer;
+}
+
+.data-results .data-item:hover {
+  background-color: rgba(187, 24, 24, 0.2);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

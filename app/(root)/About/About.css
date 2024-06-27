@@ -1,0 +1,279 @@
+.text-overlay{
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -50%);
+    color: #880808;
+    background-color: rgb(247, 246, 245);
+    height: 50%;
+    overflow: auto;
+    gap: 0.75rem;
+    width: 60%;
+}
+
+.text-overlay p{
+    margin: 10px 0;
+    font-size: 1.2rem;
+    text-transform: none;margin: 10px 0;
+    font-size: 1.2rem;
+    text-transform: none;
+}
+
+.content{
+    background-color:  rgba(211, 26, 26, 0.2);
+}
+
+
+.mission{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 10rem;
+}
+
+
+
+.about2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about2 .content,
+.about2 .image-box {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.about2 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: rgba(211, 26, 26, 0.2);
+  justify-content: center;
+  margin: 0;
+}
+
+.about2 .content h2 {
+  margin: 0;
+}
+
+.about2 .content p {
+  color: #880808;
+  font-size: 1.2rem;
+  text-transform: none;
+  margin: 0;
+}
+
+.about2 .content button {
+  width: 10rem;
+  padding: 0.5rem;
+  border: 0.2rem solid #880808;
+  background: transparent;
+  color: #880808;
+  align-self: start;
+}
+
+.about2 .content button:hover {
+  background: #880808;
+  color: #fff;
+  transition: 1s;
+}
+
+.about2 .image-box {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.about2 .image-box .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .about2 {
+    flex-direction: column;
+  }
+
+  .about2 .content{
+    flex: 1 1 100%;
+    height: auto;
+    padding: 2rem;
+    margin: 0;
+  }
+  .about2 .image-box {
+    flex: 1 1 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .about2 .image-box .img {
+    height: auto;
+  }
+}
+
+
+  @media (max-width: 720px) {
+    .text-overlay{
+        width: 80%;
+        transform: translate(-50%, -50%);
+    }
+  }
+ 
+
+  .about-management .service-head{
+    margin-left: 1rem;
+  }
+  
+  .management-box {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between;
+    padding: 2%;
+    max-width: 100%; /* Set maximum width to 100% of the parent container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  
+  .m-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2%;
+    padding: 2rem 1.6rem;
+    background-color: #eee;
+  }
+  
+  
+  
+  .m-box .desc .grade{
+    background-color: rgba(243, 120, 120, 0.2);
+    padding:  0.5rem;
+    color: #880808;
+    font-weight: bold;
+    width: 9rem;
+  }
+  
+  .m-box .desc p{
+    margin: 0.5rem 0;
+    color: #880808;
+  }
+  
+  .m-box .desc h3{
+    margin: 0.5rem 0;
+    color: #880808;
+  }
+  
+  .image-cards .image {
+    max-width: 17rem; /* Set a fixed width for the images */
+    height: 20rem; /* Set a fixed height for the images */
+    text-align: center; /* Center the image within the container */
+    overflow: hidden; /* Hide any overflow beyond the specified width and height */
+  }
+  
+  .image-cards .image img {
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
+    height: 100%; /* Ensure the image does not exceed the height of its container */
+    object-fit: cover; /* Scale the image, while maintaining its aspect ratio, to cover the entire container */
+  }
+
+
+
+  /*faq*/
+  .freq-asked {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 0;
+    margin-bottom: 10rem;;
+    padding-top: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-top: 0.16rem solid rgba(252, 83, 83, 0.3);
+  }
+  
+  .freq-asked .fa-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    flex: 1;
+  }
+  
+  .freq-asked .fa-cont h3 {
+    font-size: 2rem;
+    color: #880808;
+    font-weight: bolder;
+  }
+  
+  .faq {
+    width: 100%;
+    flex: 1;
+  }
+  
+  .freq-asked .fa-cont p {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    line-height: 1.5;
+    color: #d22b2b;
+  }
+  
+  .accordion {
+    background-color: #fff;
+    color: #880808;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-weight: 540;
+    border-bottom: 1px solid rgba(252, 83, 83, 0.2);
+    font-size: 1.4rem;
+  }
+  
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #830d0d;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .panel {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  .activated {
+    max-height: 1000px; /* Arbitrarily large value for demonstration */
+  }
+  
+  .panel p {
+    padding: 1rem;
+    color: #d22b2b;
+    line-height: 1.5;
+  }
+  
+  @media (max-width:700px) {
+    .freq-asked{
+      flex-direction: column;
+    }
+  }

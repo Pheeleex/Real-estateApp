@@ -1,0 +1,150 @@
+/*Portfolio Section*/
+.portfolio{
+    margin-top: 14rem;
+    margin-bottom: 7rem;
+  }
+  .sec-01{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   padding: 5.8% 7%;
+   color: #9e2929
+  }
+  
+  .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main-title{
+    font-size: 2rem;
+    margin-bottom: 50px;
+    margin-left: 2rem;
+    font-weight: lighter;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .p-content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .p-content .p-image{
+    position:relative;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .p-content .p-image img{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .p-content .text-box{
+    z-index: 3;
+    background: rgba(146, 82, 82, 0.3);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    max-width: 400px;
+    border: 1px solid rgba(255,255,255, 0.1);
+    border-radius: 10px;
+    transform: translate(-80px, 50px);
+    color: #5e1010;
+    font-family: 'poppins', sans-serif;
+    font-weight: 300;
+  }
+  
+  .p-content .text-box h3{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .p-content .text-box P{
+    font-size: 14px;
+  }
+  
+  .media-icons{
+    margin-top: 100px;
+  }
+  
+  .media-icons a{
+    color: #6e1b1b;
+    font-size: 2em;
+    margin: 60px;
+    margin-bottom: 80px;
+  }
+  
+  @media (max-width:821px) {
+    .p-content .p-image {
+        width: 100%;
+        height: auto; /* Remove fixed height to maintain aspect ratio */
+    }
+  
+    .main-title {
+        font-size: 2.5rem; /* Adjust the font size as per your design */
+        margin-bottom: 30px; /* Adjust the margin as per your design */
+    }
+    
+    .p-content {
+        flex-direction: column;
+    }
+  
+    .p-content .text-box {
+        padding: 20px; /* Adjust the padding as per your design */
+        width: 80%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        position: relative; /* Add position relative */
+        bottom: 64px; /* Adjust the value to position it correctly */
+        margin-left: 8rem
+    }
+  
+    .p-content .p-image img {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        height: auto; /* Remove fixed height to maintain aspect ratio */
+        object-fit: cover;
+        border-radius: 10px;
+    }
+  
+    .p-content .text-box h3 {
+        font-size: 1.5em; /* Adjust the font size as per your design */
+    }
+    
+    .media-icons {
+        margin-top: 50px; /* Adjust the margin as per your design */
+    }
+    
+    .media-icons a {
+        font-size: 1.5em; /* Adjust the font size as per your design */
+        margin: 30px;
+        margin-bottom: 40px; /* Adjust the margin as per your design */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .p-content .text-box h3{
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+    
+    .p-content .text-box P{
+      font-size: 13px;
+    }
+  }
+  

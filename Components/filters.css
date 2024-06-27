@@ -1,0 +1,165 @@
+/* filters.css */
+label {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.51rem;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 14px;
+}
+
+.radio-label {
+  flex-direction: row;
+  align-items: center;
+}
+
+.radio-buttons {
+  gap: 0.5rem;
+}
+
+input[type='radio'] {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid #5e0707;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+input[type='radio']:checked {
+  background-color: #5e0707;
+}
+
+button {
+  background-color: #5e0707;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.selected {
+  background-color: #000;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+}
+
+#bed-btn {
+  margin-right: 1rem;
+}
+
+button:hover {
+  background-color: #6d6161;
+}
+
+button[type='reset'] {
+  background-color: #ccc;
+  color: #000;
+  margin-top: 0.5rem;
+}
+
+button[type='reset']:hover {
+  background-color: #bbb;
+}
+
+.apply {
+  padding: 1rem;
+  font-size: 0.81rem;
+  width: 30%;
+  margin-right: 2rem;
+}
+
+
+.slide-form {
+  background-color: antiquewhite;
+  padding: 3rem;
+  padding-top: 1.2rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: fixed;
+  right: 20%;
+  top: 20px;
+  height: fit-content;
+  transition: right 1s ease;
+  z-index: 52;
+  overflow-y: auto;
+}
+
+.slide-form.inactive{
+  display: none;
+}
+
+.slide-form::-webkit-scrollbar {
+  width: 12px;
+  background-color: #5e0707;
+}
+
+.filter-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.close {
+  color: #5e0707;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.slide-form::-webkit-scrollbar-thumb {
+  background-color: #5e0707;
+}
+
+@media (max-width: 1100px) {
+  .slide-form {
+    width: 40%;
+    gap: 1rem;
+    padding: 1.3rem 3rem;
+  }
+}
+
+@media (max-width: 770px) {
+  .slide-form {
+    width: 100%;
+    gap: 1rem;
+    padding: 1.3rem 3rem;
+  }
+
+  .radio-buttons {
+    gap: 0.1rem;
+  }
+
+  label {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  input {
+    padding: 1.01rem;
+  }
+}
+
+/* Add overlay styling */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 51;
+}

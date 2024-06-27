@@ -1,0 +1,112 @@
+
+.reviews .review-container{
+    border: 0.1rem solid rgba(252, 83, 83, 0.3);
+    border-right: none;
+    padding: 0;
+    display: flex;
+    font-family: 'lato', sans-serif;
+ }
+
+ .review-container .sample{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-right:  0.1rem solid rgba(252, 83, 83, 0.3);
+    padding: 5%;
+    margin-top: 0rem;
+    width: 50%;  
+}
+
+.review{
+    padding: 4%;
+}
+
+
+.review-container .sample button{
+    width: 10rem;
+    padding: 0.6rem;
+    border: 0.14rem solid #880808;
+    background: transparent;
+    color:#880808;
+    cursor: pointer;
+}
+
+.review-container .sample button:hover{
+    border: 0.14rem solid #880808;
+    background: #880808;
+    color:#fff;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+
+.review-container h3{
+    margin: 0;
+    color:#880808;
+    font-size: 2.4rem;
+}
+
+.review-container p{
+    margin: 0;
+    color:#880808;
+    font-size: 1.4rem;
+}
+.review-container .name{
+    font-size: 1rem;
+    color: #880808;
+}
+
+.slid{
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: translate 300ms ease-in-out;
+}
+
+
+
+@media (max-width: 939px) {
+    .reviews .review-container{
+        flex-direction: column;
+        max-height: 52rem;
+    } 
+
+    .review{
+        gap: 2rem;
+        padding: 4%;
+        border:  0.1rem solid rgba(252, 83, 83, 0.3);
+        width: 100%;
+        background-color: antiquewhite;
+    }
+
+
+    .review-container .sample{
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        border-right:  0.1rem solid rgba(252, 83, 83, 0.3);
+        padding: 2rem;
+        margin-top: 0rem;
+        max-height: 36rem;
+        width: 60%;
+    }
+
+
+    @media (max-width: 450px) {
+        .reviews .review-container{
+            flex-direction: column;
+            max-height: 67rem;
+        } 
+
+        .review-container .sample{
+            max-height: 38rem;
+        }
+
+        .review{
+            gap: 2rem;
+            padding: 1.52rem;
+            padding-top: 2.2rem;
+        }
+    }
+    
+}
