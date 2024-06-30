@@ -34,14 +34,11 @@ const Services = () => {
       aria-labelledby="services-heading">
         <motion.h2
           intial={{x: 500}}
-          whileInView={{ x: [100, 0]}}
-          transition={{duration: 2}}
-          className="service-head mb-3 ml-4 font-bold">Our Services</motion.h2>
-        <motion.div
-          intial={{x: 0}}
           whileInView={{ x: [-300, 0]}}
           transition={{duration: 2}}
-        className="line mb-3 "></motion.div>
+          className="service-head mb-3 ml-4 font-bold">Our Services</motion.h2>
+        <div
+        className="line mb-3 " />
         <h3 className='head text_red_300'>Discover unparalleled property solutions with our dynamic property development firm</h3>
         <TypeAnimation
           sequence={[

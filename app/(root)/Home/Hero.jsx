@@ -9,7 +9,7 @@ const Hero = () => {
     const contentImages = [build1, build2, build3];   
 return(
     <section className="home mt-0 lg:mt-8 h-full" aria-labelledby="hero-heading">
-        <div className="slide flex flex-col lg:flex-row 
+        <div className="slide flex flex-col lg:flex-row
           justify-between items-center pt-8 lg:pt-20 p-0 md:p-8 h-full">
           <div className="flex-1 basis-[45%] pl-[1.4rem]  
             p-8 h-full flex flex-col items-start">

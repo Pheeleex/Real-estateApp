@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        tRed: 'rgba(206, 22, 22, 0.5)'
+        red_primary: '#880808',
+        red_secondary: '#D22B2B',
       },
       backgroundImage: {
         banner: "url('/About-Images/manor2.jpg')"

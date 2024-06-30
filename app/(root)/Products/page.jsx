@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import CustomSlider from '@/Components/CustomSlider';
 import SearchBar from '@/Components/SearchBar';
-import Filters from '@/Components/Filters';
 import propertiesLoader from '@/utils/propertiesLoader';
 import './products.css';
 
 const ProductsPage = async ({ searchParams }) => {
+  /*pull properties from properties loader(ssr) and filter with 
+  search params if any*/
   const properties = await propertiesLoader({ query: searchParams?.query || '',
     Service: searchParams?.Service || '',
     minPrice: searchParams?.minPrice || '',
@@ -14,8 +15,6 @@ const ProductsPage = async ({ searchParams }) => {
     State: searchParams?.State || ''
    });
   console.log(searchParams, 'lets see')
-  //console.log('Initial Properties:', properties);
-console.log('Search Params:', searchParams);
 
  // Initialize filteredProperties with all properties
  let filteredProperties = properties;
@@ -61,7 +60,8 @@ if (searchParams.maxPrice) {
   );
 }
 
-
+//if there are no corresponding properties to the 
+//users filters, alert the user
 const renderedProperties = filteredProperties.length > 0 ? filteredProperties :
   [{ id: 'none', ProjectName: 'No property found' }];
  
@@ -71,7 +71,7 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
     <>
       <section className='relative w-full'>
         <div className="flex-center relative min-h-[274px] w-full flex-col rounded-xl bg-banner bg-cover bg-center text-center mt-16">
-          <div className="text-overlay p-4 top-[40%]">
+          <div className="text-overlay p-4 top-[40%] border rounded-lg">
             <h2>Our Current Products</h2>
           </div>
         </div>
@@ -109,7 +109,6 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
           </div> 
         ))}
       </section>
-      <Filters />
     </>
   );
 };

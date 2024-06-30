@@ -3,7 +3,7 @@ import { Filter, Search } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import Filters from './Filters';  
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { formUrlQuery, updateUrlWithSearchQuery } from '@/utils/formQuery';
+import { updateUrlWithSearchQuery } from '@/utils/formQuery';
 import PropTypes from 'prop-types';
 
 
@@ -54,14 +54,9 @@ const SearchBar = ({ properties }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (search && !showResults) {
-      updateUrlWithSearchQuery(router, pathname, searchParams, search)
-    }
-  }, [search, showResults]);
-
+ 
   return (
-    <div className='relative'>
+    <div className='relative mt-4'>
       <div className='flex flex-col justify-center items-center absolute top-[90%] left-[4%] w-full'>
         <form className='flex flex-row justify-center items-center w-1/2'>
           <div className='flex items-center justify-center border p-2 w-full rounded-lg bg-white border-red-400'>
@@ -82,10 +77,10 @@ const SearchBar = ({ properties }) => {
           </div>
           <button
             type='button'
-            className='bg-gray-200 text-black p-2 ml-4 border rounded font-bold max-w-xs w-[10rem]'
+            className='bg-red-800 text-black p-2 ml-4 border rounded font-bold max-w-xs w-[10rem]'
             onClick={() => setShowFilter(true)} // Show filter on click
           >
-            <Filter /> Filter
+           <div className='flex p-2 text-white'> <Filter /> Filter</div>
           </button>
         </form>
         {showResults && filteredProperties.length !== 0 && (

@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import PropTypes from 'prop-types';
 import { formUrlQuery } from '@/utils/formQuery'
 
-const Filters = ({ close, showFilter, properties }) => {
+const Filters = ({ close, showFilter }) => {
 
   const searchParams = useSearchParams()
 
@@ -82,22 +82,7 @@ const Filters = ({ close, showFilter, properties }) => {
     router.push('/Products');
   };
 
-  const filteredProperties = properties.filter((prop) => {
-    const minPriceCondition = !filterForm.minPrice || prop.ProjectAmount >= parseInt(filterForm.minPrice);
-    const maxPriceCondition = !filterForm.maxPrice || prop.ProjectAmount <= parseInt(filterForm.maxPrice);
-    
-    return (
-      (filterForm.Service ? prop.Service === filterForm.Service : true) &&
-      (filterForm.Bedroom ? prop.Bedroom === filterForm.Bedroom : true) &&
-      (filterForm.State ? prop.State === filterForm.State : true) &&
-      minPriceCondition &&
-      maxPriceCondition
-    );
-  });
-
-  console.log('Filtered Properties:', filteredProperties);
-  console.log('Filter Form:', filterForm);
-  
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();

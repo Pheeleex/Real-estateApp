@@ -38,3 +38,4 @@ const fetchProperties = async () => {
 };
 
 export default fetchProperties;
+

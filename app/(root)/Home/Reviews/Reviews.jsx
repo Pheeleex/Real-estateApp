@@ -47,11 +47,11 @@ const Review = () => {
   return (
     <div>
       <section className="reviews">
-        <motion.h2 
+        <h2 
           initial={{x: 0}}
           whileInView={{ x: [180, 90, 45, -15]}}
           transition={{duration: 2}}
-          className="service-head">Reviews</motion.h2>
+          className="service-head">Reviews</h2>
         <div className="review-container">
           <div className="sample">
             <h3>Don't just take our word for it</h3>

@@ -1,16 +1,16 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { addProperty, addPropertyToFirestore, auth, updateProperty, uploadImageToStorage } from '@/utils/Firebase';
+import { addProperty,  auth, storage, updateProperty } from '@/utils/Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import EditProperties from './EditProperties';
+import { ref, uploadBytes } from 'firebase/storage';
 
 const Page = () => {
   const [user, loading] = useAuthState(auth);
-  const [username, setUsername] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] =useState('');
   const [sucess, setSuccess] = useState('')
@@ -34,16 +34,7 @@ const Page = () => {
   useEffect(() => {
    if(!loading && !user){
     router.push('./Auth/SignIn')
-   }  else if(user){
-      const userSession = localStorage.getItem('user')
-      if(userSession){
-        const { username } = JSON.parse(userSession);
-        setUsername(username);
-      } else {
-        localStorage.setItem('user', JSON.stringify({ username: user.displayName }));
-        setUsername(user.displayName);
-      }
-   }
+   }  
   }, [loading, router, user]);
 
   const locations = ['Gold State', 'Blue State', 'Marquess State', 'Grey State'];
@@ -149,12 +140,15 @@ const Page = () => {
       // Reset form fields
       setProperties({
         Price: '',
-        Service: '',
-        Bedrooms: '',
-        State: '',
-        Description: '',
-        ImagePath: '',
-        imageFiles: []
+    ProjectType: '',
+    ProjectAmount: '',
+    ProjectName: '',
+    Locate: '',
+    Service: '',
+    Bedrooms: '',
+    State: '',
+    Description:'',
+    imageFiles: []
       });
       setIsEditing(false);
     } catch (error) {
@@ -190,7 +184,7 @@ const Page = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-white text-gray-900 mb-12">
-      <h1 className="text-2xl font-bold mb-6 mt-10">Hello {user && user.displayName}</h1>
+      <h1 className="text-2xl font-bold mb-6 mt-10">Hello </h1>
       <button 
         className="mb-6 px-4 py-2 bg-red-700 text-white rounded hover:bg-red-600"
         onClick={() => {
@@ -343,5 +337,3 @@ const Page = () => {
 };
 
 export default Page;
-
-
