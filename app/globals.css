@@ -65,10 +65,8 @@ h2 {
 
 @media (max-width: 780px) {
   .nav_links_list {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
     border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     z-index: 2;
   }
 
