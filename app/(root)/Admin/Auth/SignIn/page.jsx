@@ -1,86 +1,85 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/navigation';
-import { auth, db } from '@/utils/Firebase'; // Import Firestore
-import { doc, getDoc } from 'firebase/firestore'; // Import Firestore methods
+import { auth } from '@/utils/Firebase';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
-  const [errorMessage, setErrorMessage] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setError,
+  } = useForm({
+    
+  });
 
-  useEffect(() => {
-    if (user) {
-      const fetchUserProfile = async () => {
-        try {
-          const userDoc = await getDoc(doc(db, 'users', user.user.uid));
-          if (userDoc.exists()) {
-            const userData = userDoc.data();
-            sessionStorage.setItem('user', JSON.stringify(userData));
-            router.push('/');
-          }
-        } catch (err) {
-          console.error('Failed to fetch user profile:', err);
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+
+    try {
+      await signInWithEmailAndPassword(email, password);
+
+      if (user) {
+        sessionStorage.setItem('user', JSON.stringify(user.user));
+        router.push('/');
+      }else{
+        if (error) {
+          const errorMessage = error.message || "An error occurred";
+          setError("password", {
+            type: "server",
+            message: errorMessage,
+          });
+          console.log(errorMessage)
         }
-      };
-
-      fetchUserProfile();
-    }
-  }, [user, router]);
-
-  useEffect(() => {
-    if (error) {
-      if (error.code === 'auth/wrong-password') {
-        setErrorMessage('Incorrect password. Please try again.');
-      } else if (error.code === 'auth/user-not-found') {
-        router.push('/sign-up');  // Redirect to sign-up page if user not found
-      } else {
-        setErrorMessage('Failed to sign in. Please try again.');
       }
+    } catch (error) {
+      console.log(error)
     }
-  }, [error, router]);
-
-  const handleSignIn = async () => {
-    setErrorMessage('');  // Clear any existing error messages
-    await signInWithEmailAndPassword(email, password);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-gray-800 p-10 rounded-lg shadow-xl w-96">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-800 p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
+          {...register("email", { required: 'Email is required' })}
           type="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
         />
+        {errors.email && (
+          <p className="text-red-500">{errors.email.message}</p>
+        )}
         <input
+          {...register("password", { required: 'Password is required' })}
           type="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
         />
+        {errors.password && (
+          <p className="text-red-500">{errors.password.message}</p>
+        )}
         <button
-          onClick={handleSignIn}
+          type="submit"
           className="w-full p-3 bg-indigo-600 rounded text-white hover:bg-indigo-500"
+          disabled={isSubmitting}
         >
-          Sign In
+          {isSubmitting ? 'Signing In...' : 'Sign In'}
         </button>
         <div className='mt-8'>
           <p>New User?
-            <Link href={'./SignUp'}
-              className='text-white'
-              > Create an Account here </Link>
-          </p></div>
-        {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
-      </div>
+            <Link href={'./SignUp'} className='text-white'> Create an Account here </Link>
+          </p>
+        </div>
+      </form>
     </div>
   );
 };

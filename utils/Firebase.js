@@ -88,3 +88,30 @@ export const updateProperty = async (propertyId, updatedData) => {
   }
 };
 
+
+/*const handleSignUp = async () => {
+    try {
+      const res = await createUserWithEmailAndPassword(email, password);
+      
+      if (res) {
+        console.log({ res });
+        sessionStorage.setItem('user', true);
+        setEmail('');
+        setPassword('');
+
+        await setDoc(doc(db, 'users', res.user.uid), {
+          id: res.user.uid,
+          username: res.user.displayName,
+          usermail: res.user.email // Fixed this to res.user.email since username might not be present
+        });
+
+        localStorage.setItem('user', JSON.stringify({ email: res.user.email, 
+          uid: res.user.uid,username: res.user.displayName }));
+        router.push('../Dashboard')
+      } else {
+        console.error('No response from createUserWithEmailAndPassword');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }; */
