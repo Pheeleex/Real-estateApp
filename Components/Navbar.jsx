@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Home, Menu } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   const [nav, setnav] = useState(false)
@@ -39,7 +41,7 @@ const NavBar = () => {
       items-center uppercase sticky top-0 z-50 w-full">
       <div className="flex justify-center 
         items-center red_text capitalize gap-3">
-        <Home color= '#880808' size={50} />
+       <FontAwesomeIcon icon={faHouse} />
         <Link href="/" className='text-xl lg:text-3xl font-bold'>
             Oyster Properties
         </Link>
@@ -51,8 +53,10 @@ const NavBar = () => {
           size={40}
         />
          </div>
-        <div className={`nav_links_list ${nav? 'md' : ''} cursor-pointer`}>
-          <ul className="flex flex-col md:flex-row md:items-center gap-4">
+        <div className={` ${nav ? 
+          'block absolute top-full bg-white left-0 right-0 w-full ' : 
+          'hidden lg:block'}`}>
+          <ul className='flex flex-col md:flex-row md:items-center gap-4'>
             <li className="mb-4 md:mb-0 sm:mr-0 md:mr-8">
               <Link href="/" onClick={()=>{handleNavClick('/')}}
                 className={`nav_links ${isActive('/')}`}>
