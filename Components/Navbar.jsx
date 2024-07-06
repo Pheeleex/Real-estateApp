@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -8,74 +8,72 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
-  const [nav, setnav] = useState(false)
-  const [loading, setLoading] =useState(false)
+  const [nav, setNav] = useState(false);
+  const [loading, setLoading] = useState(false);
   const pathname = usePathname();
-  const router = useRouter()
+  const router = useRouter();
 
-
-  /*Loading effect during navigation*/
   const handleNavClick = (href) => {
-    setLoading(true)
-    router.push(href)
-  }
+    setLoading(true);
+    router.push(href);
+  };
 
+  const toggleNav = () => {
+    setNav((prev) => !prev);
+  };
 
-/*Function to display navlinks in mobile view*/
-  const toggleNav = () =>{
-    setnav(prev => !prev)
-  }
-
-
-
-  // Function to check if the link is active
-  const isActive = (path) => pathname === path ? 'active' : '';
+  const isActive = (path) => (pathname === path ? 'active' : '');
 
   useEffect(() => {
-    setLoading(false)
-  }, [pathname])
+    setLoading(false);
+  }, [pathname]);
 
-  const links = ['About', 'Contact', 'Products']
+  const links = ['About', 'Contact', 'Products'];
 
   return (
-    <nav className="nav flex justify-between 
-      items-center uppercase sticky top-0 z-50 w-full">
-      <div className="flex justify-center 
-        items-center red_text capitalize gap-3">
-       <FontAwesomeIcon icon={faHouse} />
-        <Link href="/" className='text-xl lg:text-3xl font-bold'>
-            Oyster Properties
+    <nav className="nav">
+      <div className="nav-left">
+        <FontAwesomeIcon icon={faHouse} />
+        <Link href="/" className="nav-title">
+          Oyster Properties
         </Link>
       </div>
-        <Menu
-          onClick={toggleNav}
-          color= '#880808' 
-          size={40}
-          className='sm:block md:block lg:hidden cursor-pointer'
-        />
-        <div className=
-        {` ${nav ? 
-        'block absolute top-full bg-white left-0 right-0 w-full nav_links_list' : 'hidden lg:block'}`}>
-          <ul className='flex flex-col md:flex-col lg:flex-row md:items-center gap-4'>   
-            <li className="mb-4 md:mb-0 sm:mr-0 md:mr-8">
-              <Link href="/" onClick={()=>{handleNavClick('/')}}
-                className={`nav_links ${isActive('/')}`}>
-                  Home
+      <Menu
+        onClick={toggleNav}
+        color="#880808"
+        size={40}
+        className="menu-icon"
+      />
+      <div className={`nav-links ${nav ? 'show' : 'hide'}`}>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <Link
+              href="/"
+              onClick={() => {
+                handleNavClick('/');
+              }}
+              className={`nav-link ${isActive('/')}`}
+            >
+              Home
+            </Link>
+          </li>
+          {links.map((link) => (
+            <li key={link} className="nav-item">
+              <Link
+                href={`/${link}`}
+                onClick={() => {
+                  handleNavClick(`/${link}`);
+                }}
+                className={`nav-link ${isActive(`/${link}`)}`}
+              >
+                {link}
               </Link>
             </li>
-            {
-              links.map((link)=> (
-                <li className="mb-4 md:mb-0 sm:mr-0 md:mr-8">
-                <Link href={`${link}`} onClick={()=>{handleNavClick(`/${link}`)}}
-                  className={`nav_links ${isActive(`${link}`)}`}>
-                   {link}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {loading && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-52">
+          ))}
+        </ul>
+      </div>
+      {loading && (
+        <div className="loader-overlay">
           <div className="loader"></div>
         </div>
       )}
