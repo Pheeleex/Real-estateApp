@@ -76,7 +76,7 @@ h2 {
   border: 16px solid #f3f3f3;
   border-top: 16px solid #880808;
   border-radius: 50%;
-  width: 100px;
+  width:90px;
   height: 90px;
   animation: spin 2s linear infinite;
 }

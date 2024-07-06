@@ -9,6 +9,7 @@ import Link from 'next/link';
 import EditProperties from './EditProperties';
 import { ref, uploadBytes } from 'firebase/storage';
 import { Controller, useForm } from 'react-hook-form';
+import { object } from 'zod';
 
 const Page = () => {
   const [user, loading] = useAuthState(auth);
@@ -25,7 +26,8 @@ const Page = () => {
       control,
       reset,
       setValue,
-      getValues
+      getValues,
+      setError
     } = useForm({
       defaultValues:{
         Image: [],
@@ -33,37 +35,87 @@ const Page = () => {
     })
 
     const handleEdit = (data) => {
-      setValue('id', data.id);
-      setValue('Price', data.ProjectAmount || '');
-      setValue('ProjectType', data.ProjectType || '');
-      setValue('ProjectName', data.ProjectName || '');
-      setValue('Location', data.Location || '');
-      setValue('Service', data.Service || '');
-      setValue('Bedrooms', data.Bedrooms || '');
-      setValue('State', data.State || '');
-      setValue('About', data.About || '');
+      const fields = [
+        'id',
+        'ProjectAmount',
+        'ProjectType',
+        'ProjectName',
+        'Location',
+        'Service',
+        'Bedrooms',
+        'State',
+        'About',
+        'ImagePath'
+      ];
+    
+     fields.forEach(field => {
+      setValue(field, data[field] || '')
+     })
+    
       setValue('imageFiles', []);
-      setValue('ImagePath', data.ImagePath || '');
-  
       setIsEditing(true);
       formRef.current.scrollIntoView({ behavior: 'smooth' });
     };
-   
 
    
-    const onSubmit = (data, event) => { 
-      const { ProjectName, ProjectType, ImagePath, Price, Service, Image, State } = data;
-      if(!isEditing){
-        try{
-          console.log('edited data', data)
+    const onSubmit = async(data, e) => { 
+      const { ProjectName, 
+            ProjectType, 
+            ImagePath,
+            ProjectAmount, 
+            Service, 
+            imageFiles,
+            Location,
+            State,  
+            About,
+          id } = data;
+      if(isEditing){
+
+        const updatedData = {};
+       const fieldsToUpdate = {
+        ProjectName, 
+        ProjectType, 
+        ProjectAmount, 
+        Service,
+        Location,
+        State, 
+        id, 
+        About}
+
+        for(const[key, value] of Object.entries(fieldsToUpdate)){
+          if(value){
+            updatedData[key] = value
+          }
         }
-        catch(error){
-          console.log(error)
+        if (imageFiles.length > 0) {
+          if (!ImagePath) {
+            setError('ImagePath',
+                      { type: 'server',
+                        message:'Image path must be provided if uploading new images.'});
+            clearMessages();
+            return;
+          }
+    
+          updatedData.ImagePath = ImagePath;
+          await Promise.all(
+            imageFiles.map((file, index) => {
+              const storageRef = ref(storage, `${ImagePath}/${ImagePath}${index + 1}`);
+              return uploadBytes(storageRef, file);
+            })
+          );
+        } else {
+          updatedData.ImagePath = ImagePath;
         }
+    
+        await updateProperty(id, updatedData);
       }
-        if(isEditing){
-          console.log('edited data', data)
+       else{
+        const propertyData = {
+          ...data,
+          id: uuidv4()
         }
+        await addProperty(propertyData, data.imageFiles, data.ImagePath);
+       }
       reset()
     };
 
@@ -76,11 +128,6 @@ const Page = () => {
   const locations = ['Gold State', 'Blue State', 'Marquess State', 'Grey State'];
 
  
-  
-
-  
-
-
   return (
     <div className="min-h-screen flex flex-col items-center bg-white text-gray-900 mb-12">
       <h1 className="text-2xl font-bold mb-6 mt-10">Hello </h1>
@@ -101,7 +148,7 @@ const Page = () => {
           <div className="mb-4">
             <label className="block text-red-900 mb-2">Price:</label>
             <input
-               {...register("Price", { required: 'Price is required' })}
+               {...register("ProjectAmount", { required: 'ProjectAmount is required' })}
               type="number"
               className="w-full p-2 border border-red-300 rounded focus:outline-none focus:border-red-500"
             />
@@ -194,9 +241,9 @@ const Page = () => {
           <div className="mb-4">
           <label className="block text-red-900 mb-2">Upload Image:</label>
             <input
-              {...register('Image', )}
+              {...register('imageFiles', )}
               type='file'
-              name='Image'
+              name='imageFiles'
               className="w-full p-2 border border-red-300 rounded focus:outline-none focus:border-red-500"
               multiple
             />

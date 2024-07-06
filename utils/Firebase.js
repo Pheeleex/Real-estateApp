@@ -37,23 +37,27 @@ export const db = getFirestore(app)
 export const addProperty = async (property, imageFiles, ImagePath) => {
   try {
     const propertyRef = collection(db, 'Properties');
-    
+
+    // Remove imageFiles from property object
+    const { imageFiles: removedImageFiles, ...propertyData } = property;
+
     // Add property data to Firestore
-    await addDoc(propertyRef, property);
-    
+    const docRef = await addDoc(propertyRef, propertyData);
+
     // Upload images to storage with indexed names
     for (let i = 0; i < imageFiles.length; i++) {
       const file = imageFiles[i];
       const storageRef = ref(storage, `${ImagePath}/${ImagePath}${i + 1}`);
       await uploadBytes(storageRef, file);
     }
-    
+
     console.log('Property and images added successfully');
   } catch (error) {
     console.error('Error adding property:', error);
     throw error;
   }
 };
+
 
 export const deleteProperty = async(id, ImagePath, setProperties) => {
   try {

@@ -46,16 +46,15 @@ const NavBar = () => {
             Oyster Properties
         </Link>
       </div>
-      <div className='sm:block md:block lg:hidden cursor-pointer'>
         <Menu
           onClick={toggleNav}
           color= '#880808' 
           size={40}
+          className='sm:block md:block lg:hidden cursor-pointer'
         />
-         </div>
-        <div className={` ${nav ? 
-          'block absolute top-full bg-white left-0 right-0 w-full nav_links_list' : 
-          'hidden lg:block'}`}>
+        <div className=
+        {` ${nav ? 
+        'block absolute top-full bg-white left-0 right-0 w-full nav_links_list' : 'hidden lg:block'}`}>
           <ul className='flex flex-col md:flex-col lg:flex-row md:items-center gap-4'>
             <li className="mb-4 md:mb-0 sm:mr-0 md:mr-8">
               <Link href="/" onClick={()=>{handleNavClick('/')}}
