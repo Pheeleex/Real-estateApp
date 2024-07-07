@@ -16,7 +16,7 @@ const CustomSlider = ({ items,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
+//change image every 5seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);

@@ -13,17 +13,21 @@ const NavBar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
+//function to load and navigate to selected link
   const handleNavClick = (href) => {
     setLoading(true);
     router.push(href);
   };
 
+//Toggle navlinks in mobile view
   const toggleNav = () => {
     setNav((prev) => !prev);
   };
 
+  //identify link that is currently active
   const isActive = (path) => (pathname === path ? 'active' : '');
 
+  //stop loading once pathname changes
   useEffect(() => {
     setLoading(false);
   }, [pathname]);

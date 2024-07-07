@@ -24,28 +24,24 @@ if (searchParams.Service) {
   filteredProperties = filteredProperties.filter((property) =>
     property.Service === searchParams.Service
   );
-  console.log('Filtered by Service:', filteredProperties);
 }
 
 if (searchParams.query) {
   filteredProperties = filteredProperties.filter((property) =>
     property.Location.toLowerCase().includes(searchParams.query.toLowerCase())
   );
-  console.log('Filtered by query:', filteredProperties, 'query');
 }
 
 if (searchParams.Bedroom) {
   filteredProperties = filteredProperties.filter((property) =>
     property.Bedroom == searchParams.Bedroom
   );
-  console.log('Filtered by Bedroom:', filteredProperties);
 }
 
 if (searchParams.State) {
   filteredProperties = filteredProperties.filter((property) =>
     property.State.toLowerCase().includes(searchParams.State.toLowerCase())
   );
-  console.log('Filtered by State:', filteredProperties);
 }
 
 if (searchParams.minPrice) {

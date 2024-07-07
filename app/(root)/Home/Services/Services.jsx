@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import Link from 'next/link';
 import './Services.css'
 
-
+/*Type Animation */
 const servicesData = [
   {
     title: 'Buy/Sell',
@@ -32,7 +32,7 @@ const Services = () => {
   return (
     <section className="services mt-7 mb-8"
       aria-labelledby="services-heading">
-        <motion.h2
+         <motion.h2
           intial={{x: 500}}
           whileInView={{ x: [-300, 0]}}
           transition={{duration: 2}}

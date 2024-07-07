@@ -23,6 +23,8 @@ const Filters = ({ close, showFilter }) => {
   const router = useRouter();
   const pathname = usePathname();
 
+  //Add newurl if there is a filer value based on its name,
+  //else return default url
   const updateUrl = (name, value) => {
     try {
       let newUrl = '';
@@ -69,7 +71,7 @@ const Filters = ({ close, showFilter }) => {
     updateUrl(name, filterForm[name] === value ? '' : value);
   };
 
-
+//clear form when reset button is clicked
   const handleReset = () => {
     setFilterForm({
       Service: '',

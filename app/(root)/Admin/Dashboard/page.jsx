@@ -5,11 +5,10 @@ import { addProperty,  auth, storage, updateProperty } from '@/utils/Firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
-import Link from 'next/link';
 import EditProperties from './EditProperties';
 import { ref, uploadBytes } from 'firebase/storage';
 import { Controller, useForm } from 'react-hook-form';
-import { object } from 'zod';
+
 
 const Page = () => {
   const [user, loading] = useAuthState(auth);
@@ -26,7 +25,6 @@ const Page = () => {
       control,
       reset,
       setValue,
-      getValues,
       setError
     } = useForm({
       defaultValues:{
@@ -34,6 +32,7 @@ const Page = () => {
       }
     })
 
+    //populate form with existing data when edit button is clicked
     const handleEdit = (data) => {
       const fields = [
         'id',
@@ -70,7 +69,7 @@ const Page = () => {
             About,
           id } = data;
       if(isEditing){
-
+//update form data using new values entered
         const updatedData = {};
        const fieldsToUpdate = {
         ProjectName, 
@@ -81,7 +80,6 @@ const Page = () => {
         State, 
         id, 
         About}
-
         for(const[key, value] of Object.entries(fieldsToUpdate)){
           if(value){
             updatedData[key] = value
@@ -109,6 +107,7 @@ const Page = () => {
     
         await updateProperty(id, updatedData);
       }
+      //if not editing submit property data with an ID
        else{
         const propertyData = {
           ...data,
@@ -119,6 +118,7 @@ const Page = () => {
       reset()
     };
 
+  //if there is no user signed in, push the visitor to the sign in page
   useEffect(() => {
    if(!loading && !user){
     router.push('./Auth/SignIn')

@@ -21,17 +21,20 @@ const SearchBar = ({ properties }) => {
     item.Location.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, ""))
   ) : []
 
+  //search based on keyword entered
   const handleChange = (event) => {
     setSearch(event.target.value);
     setShowResults(true); // Show results when typing
   };
 
+  //show results based on sellected suggestion
   const handleResultClick = (result) => {
     setSearch(result.Location);
     setShowResults(false); // Hide results when an item is clicked
     updateUrlWithSearchQuery(router, pathname, searchParams, result.Location)
   };
 
+  //use enter to search and stop it from re-rendering
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent form submission on Enter
@@ -40,7 +43,7 @@ const SearchBar = ({ properties }) => {
     }
   };
   
-
+//instead of onBlur I used this useeffect to prevent unwanted behaviour
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (resultsRef.current && !resultsRef.current.contains(event.target)) {

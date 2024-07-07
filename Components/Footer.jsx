@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -39,7 +40,10 @@ const Footer = () => {
             <p>+234558900</p>
             <p>soro@gmail.com</p>
           </div>
-          <div className="media">
+          <motion.div 
+             initial={{scale: 0}}
+             whileInView={{scale: [0, 1.5, 1]}}
+            className="media">
             <FontAwesomeIcon 
               icon={faFacebook}
               className='icons' 
@@ -55,7 +59,7 @@ const Footer = () => {
               className='icons' 
               size='2x'
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
