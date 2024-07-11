@@ -106,6 +106,7 @@ const Filters = ({ close, showFilter }) => {
               name='Service'
               value={filterForm.Service}
               onChange={handleInputChange}
+              className='w-[3rem]'
             >
               <option value="">All</option>
               <option value="For sale">For Sale</option>
@@ -145,7 +146,7 @@ const Filters = ({ close, showFilter }) => {
       </div>
       <div>
         <label>Location:</label>
-        <div className='radio-buttons flex flex-wrap'>
+        <div className='radio-buttons'>
           {locations.map((state) => (
             <label className='radio-label' key={state}>
               <input

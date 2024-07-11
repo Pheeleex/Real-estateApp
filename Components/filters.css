@@ -1,13 +1,33 @@
 /* filters.css */
+
+.slide-form {
+  background-color: antiquewhite;
+  padding: 3%;
+  padding-top: 1.2rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: fixed;
+  right: 20%;
+  top: 20px;
+  height: fit-content;
+  transition: right 1s ease;
+  z-index: 52;
+  overflow-y:scroll;
+  overflow-x: scroll;
+}
+
+
 label {
   font-size: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1%
 }
 
 input {
-  padding: 0.51rem;
+  padding: 0.3rem
 }
 
 select {
@@ -16,11 +36,15 @@ select {
 }
 
 .radio-label {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
 }
 
 .radio-buttons {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -80,22 +104,6 @@ button[type='reset']:hover {
 }
 
 
-.slide-form {
-  background-color: antiquewhite;
-  padding: 3rem;
-  padding-top: 1.2rem;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  position: fixed;
-  right: 20%;
-  top: 20px;
-  height: fit-content;
-  transition: right 1s ease;
-  z-index: 52;
-  overflow-y: auto;
-}
 
 .slide-form.inactive{
   display: none;
@@ -132,9 +140,9 @@ button[type='reset']:hover {
 
 @media (max-width: 770px) {
   .slide-form {
-    width: 100%;
+    width: 70%;
     gap: 1rem;
-    padding: 1.3rem 3rem;
+    padding: 1.3rem 2.5rem;
   }
 
   .radio-buttons {
@@ -151,6 +159,28 @@ button[type='reset']:hover {
   input {
     padding: 1.01rem;
   }
+}
+
+@media (max-width: 450px) {
+.slide-form{
+width: 80%;
+height: 100%;
+}
+label{
+  font-size: 12px;
+}
+
+input[type='radio'] {  
+  width: 0.3rem;
+  height: 0.32rem;
+  margin-right: 0.2rem;
+  padding: 0.4rem;
+}
+
+select {
+  padding: 0.2rem;
+  font-size: 12px;
+}
 }
 
 /* Add overlay styling */

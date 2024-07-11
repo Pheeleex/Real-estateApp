@@ -29,7 +29,8 @@ const page = async ({ params }) => {
           width={1000}
           height={775}
           slideContClass={'image-slide'}
-          slideImgClass={'w-full h-full object-fit'}
+          slideImgClass={'image-container'}
+          imagesPerSlide={2}
         />
 
         <Link href="/products" className="btn">Back to Products</Link>

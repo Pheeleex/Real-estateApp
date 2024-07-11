@@ -7,7 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = () => {
+const   NavBar = () => {
   const [nav, setNav] = useState(false);
   const [loading, setLoading] = useState(false);
   const pathname = usePathname();
@@ -16,6 +16,7 @@ const NavBar = () => {
 //function to load and navigate to selected link
   const handleNavClick = (href) => {
     setLoading(true);
+    setNav((prev) => !prev);
     router.push(href);
   };
 
@@ -36,10 +37,10 @@ const NavBar = () => {
 
   return (
     <nav className="nav">
-      <div className="nav-left">
-        <FontAwesomeIcon icon={faHouse} />
-        <Link href="/" className="nav-title">
-          Oyster Properties
+      <div className="nav-left">     
+        <Link href="/" className="flex justify-center items-center">
+        <FontAwesomeIcon icon={faHouse} className='text-[2rem]' />
+          <span className='text-3xl font-bold'>Oyster Estate</span>
         </Link>
       </div>
       <Menu

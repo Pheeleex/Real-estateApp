@@ -93,7 +93,7 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
             {prop.images && prop.images.length > 0 ? (
               <CustomSlider
                 items={prop.images}
-                width={560}
+                width={500}
                 height={500}
                 slideContClass='image-slide'
                 slideImgClass='w-full h-full object-fit'

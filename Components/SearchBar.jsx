@@ -61,8 +61,8 @@ const SearchBar = ({ properties }) => {
   return (
     <div className='relative mt-4'>
       <div className='flex flex-col justify-center items-center absolute top-[90%] left-[4%] w-full'>
-        <form className='flex flex-row justify-center items-center w-1/2'>
-          <div className='flex items-center justify-center border p-2 w-full rounded-lg bg-white border-red-400'>
+        <form className='flex flex-row justify-center items-center w-[80%]'>
+          <div className='flex items-center justify-center md:w-3/4 lg:w-1/2 border p-2 w-full rounded-lg bg-white border-red-400'>
             <input
               type='text'
               placeholder='location'
@@ -70,7 +70,6 @@ const SearchBar = ({ properties }) => {
               value={search}
               onChange={handleChange}
               onFocus={() => setShowResults(true)} // Show results on focus
-              
               onKeyPress={handleKeyPress} // Handle Enter key
               className='border-none outline-none w-full p-2 bg-transparent'
             />
