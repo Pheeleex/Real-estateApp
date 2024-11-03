@@ -30,7 +30,7 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section className="services mt-7 mb-8"
+    <section className="services my-20"
       aria-labelledby="services-heading">
          <motion.h2
           intial={{x: 500}}
@@ -64,9 +64,9 @@ const Services = () => {
       items-center gap-4 mt-0">
         {servicesData.map((service, index) => (
           <motion.div
-          initial={{ scale: 0, y: 0 }}
-          whileInView={{ scale:[ 0.6, 0.8, 1], y:[ 50, 0] }}
-          transition={{duration: 1.8}}
+          initial={{  y: 0 }}
+          whileInView={{  y:[ 100, 0] }}
+          transition={{duration: 1.2}}
           key={index} >
               <div className="cards flex flex-col gap-4 p-4 
               rounded-2xl">

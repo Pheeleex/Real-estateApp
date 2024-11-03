@@ -40,7 +40,7 @@ const   NavBar = () => {
       <div className="nav-left">     
         <Link href="/" className="flex justify-center items-center">
         <FontAwesomeIcon icon={faHouse} className='text-[2rem]' />
-          <span className='text-3xl font-bold'>Oyster Estate</span>
+          <span className='text-3xl font-bold'>OE</span>
         </Link>
       </div>
       <Menu
@@ -49,7 +49,8 @@ const   NavBar = () => {
         size={40}
         className="menu-icon"
       />
-      <div className={`nav-links ${nav ? 'show' : 'hide'}`}>
+      <div className={`nav-links  text-white md:bg-white p-2
+        md:text-red-400 ${nav ? 'show' : 'hide'}`}>
         <ul className="nav-list">
           <li className="nav-item">
             <Link

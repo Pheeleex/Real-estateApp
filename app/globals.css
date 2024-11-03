@@ -47,6 +47,12 @@ h2 {
   width: 100%;
 }
 
+@media (max-width:720px) {
+  .nav{
+    padding: 1.7rem;
+  }
+}
+
 .nav-left {
   display: flex;
   justify-content: center;
@@ -80,8 +86,8 @@ h2 {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #fff;
   display: none;
+  background-color: rgb(245, 238, 238);
 }
 
 .nav-links.show {
@@ -114,6 +120,7 @@ h2 {
 
 .nav-item {
   margin-bottom: 16px;
+  
 }
 
 @media (min-width: 1024px) {

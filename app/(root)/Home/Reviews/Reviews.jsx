@@ -46,7 +46,7 @@ const Review = () => {
 
   return (
     <div>
-      <section className="reviews">
+      <section className="reviews mt-[12rem]">
         <h2 
           initial={{x: 0}}
           whileInView={{ x: [180, 90, 45, -15]}}

@@ -31,7 +31,7 @@ const CustomSlider = ({ items, width, height, slideImgClass, slideContClass, lar
       {
           items.map((url, index) => (
             <Image src={items[currentIndex]} alt={`Slide ${index + 1}`}
-            className={`slide-img ${slideImgClass}  w-full h-[28rem] object-cover`}
+            className={`slide-img ${slideImgClass}  w-full h-full object-cover`}
             style={{translate: `${-100 * currentIndex}%`}}
             aria-hidden={currentIndex !== index}
             key={index}

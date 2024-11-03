@@ -39,15 +39,15 @@ const Portfolio = () => {
         }
       ];
   return (
-   <section>
+   <section className='mt-[12rem]'>
          <motion.h2 
          intial={{x: 20}}
          whileInView={{ x: [100, 0]}}
          transition={{duration: 2}}
           className="service-head">Portfolio</motion.h2>
       <motion.div
-          intial={{x: 0}}
-          whileInView={{ x: [-300, 0]}}
+          intial={{scaleX: 1}}
+          whileInView={{ scaleX: [0.5, 1]}}
           transition={{duration: 2}}
             className="line">
             </motion.div>
