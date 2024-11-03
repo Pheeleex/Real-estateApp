@@ -40,9 +40,7 @@ const Footer = () => {
             <p>+234558900</p>
             <p>soro@gmail.com</p>
           </div>
-          <motion.div 
-             initial={{scale: 0}}
-             whileInView={{scale: [0, 1.5, 1]}}
+          <div 
             className="media">
             <FontAwesomeIcon 
               icon={faFacebook}
@@ -59,7 +57,7 @@ const Footer = () => {
               className='icons' 
               size='2x'
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

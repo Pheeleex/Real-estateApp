@@ -39,18 +39,15 @@ const Portfolio = () => {
         }
       ];
   return (
-   <section className='mt-[12rem]'>
+   <section className='mt-40'>
          <motion.h2 
-         intial={{x: 20}}
-         whileInView={{ x: [100, 0]}}
-         transition={{duration: 2}}
+         intial={{y: -20}}
+         whileInView={{ y: [-100, 0]}}
+         transition={{duration: 1}}
           className="service-head">Portfolio</motion.h2>
-      <motion.div
-          intial={{scaleX: 1}}
-          whileInView={{ scaleX: [0.5, 1]}}
-          transition={{duration: 2}}
+      <div
             className="line">
-            </motion.div>
+            </div>
             {
                 portfolioData.map((item, index) => (
                     <PortfolioItem key={index} imageSrc={item.imageSrc} 

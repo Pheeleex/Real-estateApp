@@ -11,7 +11,7 @@ const Hero = () => {
         <section className="" aria-labelledby="hero-heading">
             <div className="flex flex-col lg:flex-row h-full justify-center items-center">
                 {/* Content side */}
-                <div className="w-full lg:w-1/2 h-full flex flex-col items-start justify-center p-16">
+                <div className="w-full lg:w-1/2 h-full flex flex-col items-start justify-center p-9 md:pt-12 lg:p-16 gap-4">
                     <span className="red_text_300 text-2xl">New Projects</span>
                     <h3 className="red_text text-5xl font-bold">
                         The future of property investing.

@@ -62,7 +62,7 @@
     max-width: 400px;
     border: 1px solid rgba(255,255,255, 0.1);
     border-radius: 10px;
-    transform: translate(-80px, 50px);
+    
     color: #5e1010;
     font-family: 'poppins', sans-serif;
     font-weight: 300;
@@ -110,7 +110,7 @@
         border-radius: 10px;
         position: relative; /* Add position relative */
         bottom: 64px; /* Adjust the value to position it correctly */
-        margin-left: 8rem
+        margin-left: 2rem
     }
   
     .p-content .p-image img {

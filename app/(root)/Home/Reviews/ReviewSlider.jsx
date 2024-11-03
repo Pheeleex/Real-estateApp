@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import './Reviews.css';
 import { Star } from 'lucide-react';
 
-const dotsContainerStyles = "absolute bottom-4 w-full flex justify-center gap-2";
-const dotStyle = "cursor-pointer w-3 h-3 rounded-full bg-gray-400";
+const dotsContainerStyles = "absolute bottom-4 w-full left-[-1%] flex justify-center items-center gap-2";
+const dotStyle = "cursor-pointer w-2 h-2 rounded-full bg-gray-400";
 const activeDotStyle = "bg-red-600";
 
 const ReviewSlider = ({ reviews }) => {
