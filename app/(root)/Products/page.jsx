@@ -3,6 +3,7 @@ import CustomSlider from '@/Components/CustomSlider';
 import SearchBar from '@/Components/SearchBar';
 import propertiesLoader from '@/utils/propertiesLoader';
 import './products.css';
+import { ArrowRight } from 'lucide-react';
 
 const ProductsPage = async ({ searchParams }) => {
   /*pull properties from properties loader(ssr) and filter with 
@@ -65,32 +66,20 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
 
   return (
     <>
-      <section className='relative w-full'>
+      <section className='w-full'>
         <div className="flex-center relative min-h-[274px] w-full flex-col rounded-xl bg-banner bg-cover bg-center text-center mt-16">
           <div className="text-overlay p-4 top-[40%] border rounded-lg">
             <h2>Our Current Products</h2>
           </div>
         </div>
-        <SearchBar properties={properties} />
+        <div>
+          <SearchBar properties={properties} />
+        </div>
       </section>
       <section className='projects'>
         {renderedProperties.map((prop) => (
-          <div key={prop.id} className="products-slide">
-            <div className="bucket">
-              <div className="features">
-                <div className='name-amount'>
-                  <h2>{prop.ProjectName}</h2>
-                  <h3>${prop.ProjectAmount}</h3>
-                </div>
-                <div className='service-type'>
-                  <h3>{prop.Service}</h3>
-                  <p>{prop.ProjectType}</p>
-                </div>
-                <span>{prop.Bedroom} {prop.Bedroom === 1 ? 'Bedroom' : "Bedrooms"}</span>
-                <Link href={`/Products/${prop.id}`} className="btn">Find Out More</Link>
-              </div>
-            </div>
-            {prop.images && prop.images.length > 0 ? (
+          <div key={prop.id} className="products-slide min-h-[350px] max-h-[380px]">
+               {prop.images && prop.images.length > 0 ? (
               <CustomSlider
                 items={prop.images}
                 width={500}
@@ -102,6 +91,24 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
             ) : (
               <p>No images available</p>
             )}
+            <div className="bucket">
+              <div className="features">
+                <div className='name-amount'>
+                  <h4 className='text-md md:text-4xl'>{prop.ProjectName}</h4>
+                  <h4>${prop.ProjectAmount}</h4>
+                </div>
+                <div className='service-type'>
+                  <h3 className='text-md '>{prop.Service}</h3>
+                  <p>{prop.ProjectType}</p>
+                </div>
+                <span>{prop.Bedroom} {prop.Bedroom === 1 ? 'Bedroom' : "Bedrooms"}</span>
+                <Link href={`/Products/${prop.id}`} className="flex justify-center items-center text-red-800">
+                    <span>Find Out More</span>
+                    <ArrowRight className="icon" />
+                </Link>
+              </div>
+            </div>
+           
           </div> 
         ))}
       </section>

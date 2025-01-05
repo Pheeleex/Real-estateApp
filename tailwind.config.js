@@ -8,8 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        red_primary: '#880808',
-        red_secondary: '#D22B2B',
+       brand: {
+        100: '#D22B2B',
+        DEFAULT:'#880808'
+       }
       },
       backgroundImage: {
         banner: "url('/About-Images/manor2.jpg')"

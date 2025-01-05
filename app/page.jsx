@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Homepage from "./(root)/Home";
+import Homepage from "../Components/Home";
 
 
 export default function Home() {

@@ -1,8 +1,8 @@
 import React from 'react'
-import WhoWeAre from './whoweare'
-import About2 from './whoweare/about2'
-import Management from './management'
-import Faq from './faq/faq'
+import WhoWeAre from '../../../Components/AboutPage/whoweare'
+import About2 from '../../../Components/AboutPage/whoweare/about2'
+import Management from '../../../Components/AboutPage/management'
+import Faq from '../../../Components/AboutPage/faq/faq'
 
 
 const page = () => {

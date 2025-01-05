@@ -36,7 +36,7 @@ const Services = () => {
           intial={{x: 500}}
           whileInView={{ x: [-300, 0]}}
           transition={{duration: 2}}
-          className="service-head mb-3 ml-4 font-bold">Our Services</motion.h2>
+          className="h2 mb-3 ml-4 font-bold">Our Services</motion.h2>
         <div
         className="line mb-3 " />
         <h3 className='head text_red_300'>Discover unparalleled property solutions with our dynamic property development firm</h3>
@@ -70,7 +70,7 @@ const Services = () => {
           key={index} >
               <div className="cards flex flex-col gap-4 p-4 
               rounded-2xl">
-                    <h3>{service.title}</h3>
+                    <h3 className='h3'>{service.title}</h3>
                     <p>{service.description}</p>
                 <Link href='/' className='link red_text' 
                   aria-label={`Learn more about ${service.title}`}>

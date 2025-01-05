@@ -50,7 +50,7 @@ const   NavBar = () => {
         className="menu-icon"
       />
       <div className={`nav-links  text-white md:bg-white p-2
-        md:text-red-400 ${nav ? 'show' : 'hide'}`}>
+        md:text-brand-100 ${nav ? 'show' : 'hide'}`}>
         <ul className="nav-list">
           <li className="nav-item">
             <Link

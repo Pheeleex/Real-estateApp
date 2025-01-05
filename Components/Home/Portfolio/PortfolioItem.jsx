@@ -16,10 +16,10 @@ const PortfolioItem = ({ imageSrc, title, description }) => {
             </div>
             <motion.div 
                intial={{x: 0}}
-               whileInView={{ x: [0, 20, 40, 0]}}
+               whileInView={{ x: [0, 20, -20, -40, ]}}
                transition={{duration: 1.2}}
               className="text-box">
-              <h3>{title}</h3>
+              <h3 className='font-bold'>{title}</h3>
               <p>{description}</p>
             </motion.div>
           </div>

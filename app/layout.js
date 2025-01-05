@@ -3,7 +3,6 @@ import './globals.css';
 import Navbar from '@/Components/Navbar';
 import Footer from '@/Components/Footer';
 import Outro from '@/Components/Outro';
-import { StateProvider } from './(root)/Admin/Context';
 
 const inter = Inter({ subsets: ['latin'] });
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });

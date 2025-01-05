@@ -3,20 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const dotsContainerStyles = "absolute bottom-4 w-full flex justify-center top-[75%]";
+const dotsContainerStyles = "absolute bottom-5 w-full flex justify-center ";
 const dotStyle = "mx-1 cursor-pointer w-2 h-2 rounded-full bg-gray-400";
 const activeDotStyle = "bg-red-600";
 
 const CustomSlider = ({ items, width, height, slideImgClass, slideContClass, largeCont }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
- 
-
   // Change image every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, 5000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [items.length]);
@@ -26,8 +24,8 @@ const CustomSlider = ({ items, width, height, slideImgClass, slideContClass, lar
   };
 
   return (
-    <div className={`home-slider ${largeCont} h-full w-full relative`}>
-      <div className={`image ${slideContClass} flex w-full h-full overflow-hidden`}>
+    <div className={`home-slider ${largeCont} h-full w-full  relative`}>
+      <div className={`${slideContClass} flex w-full h-full  overflow-hidden`}>
       {
           items.map((url, index) => (
             <Image src={items[currentIndex]} alt={`Slide ${index + 1}`}
