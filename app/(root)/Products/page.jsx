@@ -76,17 +76,18 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
           <SearchBar properties={properties} />
         </div>
       </section>
-      <section className='projects'>
+      <section className='projects mt-[10rem]'>
         {renderedProperties.map((prop) => (
-          <div key={prop.id} className="products-slide min-h-[350px] max-h-[380px]">
+          <div key={prop.id} className="products-slide">
                {prop.images && prop.images.length > 0 ? (
-              <CustomSlider
+              
+                  <CustomSlider
                 items={prop.images}
                 width={500}
                 height={500}
                 slideContClass='image-slide'
                 slideImgClass='w-full h-full object-fit'
-                largeCont=''
+                largeCont='h-1/2'
               />
             ) : (
               <p>No images available</p>
@@ -94,11 +95,11 @@ console.log(searchParams, searchParams.Service, renderedProperties.length)
             <div className="bucket">
               <div className="features">
                 <div className='name-amount'>
-                  <h4 className='text-md md:text-4xl'>{prop.ProjectName}</h4>
-                  <h4>${prop.ProjectAmount}</h4>
+                  <h4 className='h2'>{prop.ProjectName}</h4>
+                  <h4 className='h4'>${prop.ProjectAmount}</h4>
                 </div>
                 <div className='service-type'>
-                  <h3 className='text-md '>{prop.Service}</h3>
+                  <h3 className='h3'>{prop.Service}</h3>
                   <p>{prop.ProjectType}</p>
                 </div>
                 <span>{prop.Bedroom} {prop.Bedroom === 1 ? 'Bedroom' : "Bedrooms"}</span>

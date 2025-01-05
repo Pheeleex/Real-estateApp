@@ -44,7 +44,7 @@ const Portfolio = () => {
          intial={{y: -20}}
          whileInView={{ y: [-100, 0]}}
          transition={{duration: 1}}
-          className="service-head">Portfolio</motion.h2>
+          className="service-head h2">Portfolio</motion.h2>
       <div
             className="line">
             </div>
