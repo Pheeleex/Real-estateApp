@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import './Reviews.css';
 import { Star } from 'lucide-react';
 
 const dotsContainerStyles = "absolute bottom-4 w-full left-[-1%] flex justify-center items-center gap-2";

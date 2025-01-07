@@ -2,7 +2,6 @@
 
 import React from 'react';
 import ReviewSlider from './ReviewSlider';
-import "./Reviews.css";
 import { motion } from 'framer-motion';
 
 const Review = () => {

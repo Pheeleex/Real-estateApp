@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import './Portfolio.css'
 import { motion } from 'framer-motion';
 import { build1, build2, build3 } from "@/utils"
 import PortfolioItem from './PortfolioItem';

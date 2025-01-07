@@ -4,7 +4,7 @@ import Homepage from "../Components/Home";
 
 export default function Home() {
   return (
-    <div>  
+    <div className="overflow-hidden">  
        <Homepage />  
     </div>
   );
