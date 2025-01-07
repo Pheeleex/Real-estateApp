@@ -30,12 +30,12 @@ const Hero = () => {
                 </div>
 
                 {/* Image side */}
-                <div className="flex justify-center items-center w-full h-3/4 lg:w-1/2 p-2 rounded-md">
+                <div className="flex justify-center items-center w-full h-[400px] lg:w-1/2 p-2 rounded-md">
                     <CustomSlider 
                         items={contentImages}
-                        slideImgClass='rounded-lg'
-                        largeCont='rounded-lg'
-                        slideContClass='rounded-lg'
+                        slideImgClass='rounded-lg h-full'
+                        largeCont='rounded-lg h-full'
+                        slideContClass='rounded-lg h-full'
                         />
                 </div>
             </div>

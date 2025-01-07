@@ -24,7 +24,7 @@ const CustomSlider = ({ items, width, height, slideImgClass, slideContClass, lar
   };
 
   return (
-    <div className={`home-slider ${largeCont} h-full w-full  relative`}>
+    <div className={`home-slider ${largeCont} h-full w-full  relative top-0`}>
       <div className={`${slideContClass} flex w-full h-full  overflow-hidden`}>
       {
           items.map((url, index) => (

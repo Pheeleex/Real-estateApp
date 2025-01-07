@@ -36,29 +36,27 @@ const   NavBar = () => {
   const links = ['About', 'Contact', 'Products'];
 
   return (
-    <nav className="nav">
-      <div className="nav-left">     
-        <Link href="/" className="flex justify-center items-center">
+    <nav className="nav">    
+        <Link href="/" className="flex justify-center items-center text-brand">
         <FontAwesomeIcon icon={faHouse} className='text-[2rem]' />
           <span className='text-3xl font-bold'>OE</span>
         </Link>
-      </div>
       <Menu
         onClick={toggleNav}
         color="#880808"
         size={40}
-        className="menu-icon"
+        className="block lg:hidden cursor-pointer"
       />
-      <div className={`nav-links  text-white md:bg-white p-2
-        md:text-brand-100 ${nav ? 'show' : 'hide'}`}>
+      <div className={`nav-links  text-white p-2
+        md:text-brand-100 ${nav ? 'show' : ''}`}>
         <ul className="nav-list">
-          <li className="nav-item">
+          <li>
             <Link
               href="/"
               onClick={() => {
                 handleNavClick('/');
               }}
-              className={`nav-link ${isActive('/')}`}
+              className={`nav-link text-brand ${isActive('/')}`}
             >
               Home
             </Link>

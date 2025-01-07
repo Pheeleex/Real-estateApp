@@ -10,6 +10,7 @@ module.exports = {
       colors: {
        brand: {
         100: '#D22B2B',
+        transparent: 'rgb(136, 8, 8, 0.9)',
         DEFAULT:'#880808'
        }
       },
